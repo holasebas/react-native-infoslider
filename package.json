@@ -1,0 +1,14 @@
+{
+  "name": "react-native-infoslider",
+  "version": "1.0.1",
+  "description": "React native info slider with react-native-swipper",
+  "main": "src/index.js",
+  "keywords": [
+    "reactnative",
+    "javascript"
+  ],
+  "dependencies": {
+    "react-native-swiper": "^1.5.4"
+  },
+   "author": "Sebastian Diaz"
+}
