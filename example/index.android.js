@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -11,22 +5,44 @@ import {
   Text,
   View
 } from 'react-native';
-
+import Infoslider from 'react-native-infoslider'
 export default class example extends Component {
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      data:[
+          {
+          title:"Hello World", 
+          text:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard",
+          image: require('./images/1.jpg')},
+          {
+          title:"Lorem Ipsum", 
+          text:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard",
+          image: require('./images/2.jpg')},
+          {
+          title:"Lorem Ipsum", 
+          text:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard",
+          image: require('./images/3.jpg')},
+          {
+          title:"Lorem Ipsum", 
+          text:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard",
+          image: require('./images/4.jpg')},
+          
+      ]
+    };
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+     <Infoslider 
+        data={this.state.data} 
+        showDots={true} 
+        activeDotColor="#04B4AE" 
+        titleColor="#000" 
+        textColor="#666" 
+        loop={false} 
+        autoplay={true} 
+        autoplayTimeout={3}/
     );
   }
 }
