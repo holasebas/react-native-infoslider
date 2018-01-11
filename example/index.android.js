@@ -42,7 +42,7 @@ export default class example extends Component {
         textColor="#666" 
         loop={false} 
         autoplay={true} 
-        autoplayTimeout={3}/
+        autoplayTimeout={3}/>
     );
   }
 }
