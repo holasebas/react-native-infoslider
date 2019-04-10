@@ -2,30 +2,17 @@ import React,{Component} from 'react'
 import {
   Text,
   View,
-  Image,
   StyleSheet,
   Dimensions,
-  Animated,
-  ActivityIndicator
-
-
+  Animated
 } from 'react-native'
 
 import Swiper from 'react-native-swiper'
-
-
-
 const {width} = Dimensions.get('window')
-const {height} = Dimensions.get('window')
-
-
-
 const Slide = props => (
   
-
-  <View style={styles.TextContainer}>     
+  <View style={styles.TextContainer}>    
     <Animated.Text
-      
        style={{
           color:props.titleColor,
           fontSize:20,
@@ -37,7 +24,6 @@ const Slide = props => (
         <Text>{props.titulo}</Text>
 
     </Animated.Text>
-
     <Animated.Text
        style={{
         color:props.textColor,
@@ -53,6 +39,8 @@ const Slide = props => (
        > 
         <Text>{props.texto}</Text>
     </Animated.Text>
+          {props.skipButtom}
+   
   </View>
 
 
@@ -62,8 +50,6 @@ const Slide = props => (
 
 export default class infoslider extends Component{
 
-
-  
   constructor(props) {
     super(props);
   
@@ -170,7 +156,6 @@ export default class infoslider extends Component{
           <Swiper
             autoplay={this.props.autoplay}
             autoplayTimeout ={this.props.autoplayTimeout}
-            style={{borderWidth:0}}
             showsPagination ={this.props.showDots}
             activeDotColor={this.props.activeDotColor}
             loop={this.props.loop}
@@ -194,6 +179,7 @@ export default class infoslider extends Component{
                 textValue={this.state.textValue} 
                 imgValue={this.state.imgValue}
                 opacity={this.state.opacity}
+                skipButtom={this.props.skipButtom}
               />
               )
 
@@ -212,7 +198,6 @@ const styles = StyleSheet.create({
     flex:1,
      justifyContent: 'center',
      alignItems: 'center',
-     backgroundColor: '#fff',
      borderWidth:1
    },
 
@@ -220,14 +205,11 @@ const styles = StyleSheet.create({
    flex:1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
     borderWidth:0
   },
   TextContainer: {
     flex:1,
-   
      alignItems: 'center',
-     backgroundColor: '#fff',
      borderWidth:0
    }
 });
