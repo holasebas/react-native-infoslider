@@ -43,7 +43,10 @@ npm i react-native-infoslider --save
         textColor="#666" 
         loop={false} 
         autoplay={true} 
-        autoplayTimeout={3}/>
+        autoplayTimeout={3}
+        skipButtom={<View><TouchableOpacity style={{marginTop:80}} onPress={()=> {
+          console.log("SKIP")}}><Text>S K I P</Text></TouchableOpacity></View>}
+        />
     );
   }
 }
@@ -60,6 +63,7 @@ npm i react-native-infoslider --save
 | loop| true |bool|Set to false to disable loop mode|
 | autoplay| false |bool|Set to true enable autoplay mode|
 | autoplayTimeout| 2.5 |number|Delay between auto play transitions in second|
+| skipButtom| - |React Native Component|Render a component under your slide Text|
 # Data Example
 
 ```js
