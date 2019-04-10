@@ -43,7 +43,7 @@ npm i react-native-infoslider --save
         textColor="#666" 
         loop={false} 
         autoplay={true} 
-        autoplayTimeout={3}/
+        autoplayTimeout={3}/>
     );
   }
 }
