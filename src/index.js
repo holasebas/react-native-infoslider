@@ -22,22 +22,22 @@ const {height} = Dimensions.get('window')
 
 const Slide = props => (
   
-  <View style={styles.container}>     
+
+  <View style={styles.TextContainer}>     
     <Animated.Text
       
-       style={styles.title, {
-        color:props.titleColor,
-        fontSize:20,
-        fontWeight:'400',
-        padding:10,
-        opacity:props.opacity,
-              transform: [                       
-              {translateX: props.titleValue}, 
-            ]
-          }}
+       style={{
+          color:props.titleColor,
+          fontSize:20,
+          fontWeight:'400',
+          padding:10,
+          opacity:props.opacity
+        }}
        > 
         <Text>{props.titulo}</Text>
+
     </Animated.Text>
+
     <Animated.Text
        style={{
         color:props.textColor,
@@ -149,22 +149,25 @@ export default class infoslider extends Component{
     return(
 
       <View style={styles.container}>
-          <Animated.Image  
-              source={this.state.currentImage}
-               style={{
-                  width:240,
-                  height:240,
-                  borderRadius:120,
-                  opacity:this.state.imgValue,
-                    transform: [                    
-                      {translateX: 0},  
-                    ]
-                  }}
-                />
+        <View style={styles.ImagesContainer}>
+            <Animated.Image  
+                source={this.state.currentImage}
+                style={{
+                    position:'absolute',
+                    bottom:0,
+                    width:240,
+                    height:240,
+                    borderRadius:120,
+                    opacity:this.state.imgValue,
+                      transform: [                    
+                        {translateX: 0},  
+                      ]
+                    }}
+                  />
+          </View>
 
 
           <Swiper
-
             autoplay={this.props.autoplay}
             autoplayTimeout ={this.props.autoplayTimeout}
             style={{borderWidth:0}}
@@ -173,7 +176,6 @@ export default class infoslider extends Component{
             loop={this.props.loop}
             width={width}
             bounces={true}
-            height={height/3}
             loadMinimal={true}
             loadMinimalSize={0}
             onMomentumScrollEnd={(e,state) => this.animacion(state.index)}
@@ -197,6 +199,7 @@ export default class infoslider extends Component{
 
           }
           </Swiper>
+     
         </View>
       
       )
@@ -204,11 +207,27 @@ export default class infoslider extends Component{
 }
 
 const styles = StyleSheet.create({
+
   container: {
+    flex:1,
+     justifyContent: 'center',
+     alignItems: 'center',
+     backgroundColor: '#fff',
+     borderWidth:1
+   },
+
+  ImagesContainer: {
    flex:1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFF',
-  }
-
+    backgroundColor: '#fff',
+    borderWidth:0
+  },
+  TextContainer: {
+    flex:1,
+   
+     alignItems: 'center',
+     backgroundColor: '#fff',
+     borderWidth:0
+   }
 });
